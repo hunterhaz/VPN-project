@@ -28,7 +28,6 @@ DAEMON=/usr/local/vpnserver/vpnserver
 DNSSER=/etc/init.d/dnsmasq
 LOCK=/var/lock/subsys/vpnserver
 TAP_ADDR=192.168.7.1
-
 test -x $DAEMON || exit 0
 case "$1" in
 start)
