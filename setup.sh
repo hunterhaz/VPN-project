@@ -10,10 +10,13 @@ cd /tmp && wget http://www.softether-download.com/files/softether/v4.28-9669-bet
 tar xzvf /tmp/*vpnserver*
 cd /tmp/vpnserver 
 echo -e "1\n1\n1\n" | make
-mv /tmp/vpnserver/vpnserver /usr/local
-chmod 600 /usr/local/vpnserver/*
-chmod 700 /usr/local/vpnserver/vpncmd
-chmod 700 /usr/local/vpnserver/vpnserver
+cd ..
+mv vpnserver /usr/local
+cd /usr/local/vpnserver/
+chmod 600 *
+chmod 700 vpncmd
+chmod 700 vpnserver
+ls -l
 echo "installing init daemon for softether vpnserver"
 echo '#!/bin/sh
 ### BEGIN INIT INFO
@@ -165,4 +168,4 @@ systemctl start v2ray
 echo "installing crontab"
 echo -e "@reboot /etc/init.d/vpnserver restart\n" > /tmp/my-crontab
 crontab /tmp/my-crontab
-chmod 777 /etc/init.d/vpnserver
+chmod +x /etc/init.d/vpnserver
