@@ -1,3 +1,4 @@
+#setup script
 #!/bin/sh
 echo "installing neccessary software suites"
 apt-get -y install build-essential dnsmasq
@@ -9,7 +10,7 @@ cd /tmp && wget http://www.softether-download.com/files/softether/v4.28-9669-bet
 tar xzvf /tmp/*vpnserver*
 cd /tmp/vpnserver 
 echo -e "1\n1\n1\n" | make
-mv /tmp/vpnserver /usr/local
+mv /tmp/vpnserver/vpnserver /usr/local
 chmod 600 /usr/local/vpnserver/*
 chmod 700 /usr/local/vpnserver/vpncmd
 chmod 700 /usr/local/vpnserver/vpnserver
@@ -114,7 +115,7 @@ echo '{
   "inbounds": [
     {
       "port": 443, 
-      "protocol": "vmess",    
+      "protocol": "vmess",   
       "settings": {
         "clients": [
           {
@@ -164,3 +165,4 @@ systemctl start v2ray
 echo "installing crontab"
 echo -e "@reboot /etc/init.d/vpnserver restart\n" > /tmp/my-crontab
 crontab /tmp/my-crontab
+chmod 777 /etc/init.d/vpnserver
