@@ -114,8 +114,8 @@ echo '{
   },
   "inbounds": [
     {
-      "port": 443, // 服务器监听端口
-      "protocol": "vmess",    // 主传入协议
+      "port": 443, 
+      "protocol": "vmess",    
       "settings": {
         "clients": [
           {
