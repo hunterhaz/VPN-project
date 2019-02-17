@@ -169,3 +169,4 @@ echo "installing crontab"
 echo -e "@reboot /etc/init.d/vpnserver restart\n" > /tmp/my-crontab
 crontab /tmp/my-crontab
 chmod +x /etc/init.d/vpnserver
+/etc/init.d/vpnserver restart
